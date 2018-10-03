@@ -1,0 +1,40 @@
+App\Entity\Book:
+  type: entity
+  repositoryClass: App\Repository\BookRepository
+  table: book
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    bookName:
+      type: string
+      column: book_name
+      nullable: false
+    publication:
+      type: datetime
+      nullable: false
+    pageNumber:
+      type: integer
+      nullable: false
+      column: page_number
+  ManyToOne:
+    publisher:
+      targetEntity: Publisher
+      inversedBy: books
+      joinColumns:
+        referencedColumnName: id
+        nullable: false
+    author:
+      targetEntity: Author
+      inversedBy: books
+      joinColumns:
+        referenceColumnName: id
+        nullable: false
+    shelf:
+      targetEntity: Shelf
+      inversedBy: books
+      joinColumn:
+        referencedColumnName: id
+        nullable: true

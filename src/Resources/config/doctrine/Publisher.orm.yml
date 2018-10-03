@@ -1,0 +1,25 @@
+App\Entity\Publisher:
+  type: entity
+  repositoryClass: App\Repository\PublisherRepository
+  table: publisher
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    companyName:
+      type: string
+      nullable: false
+      length: 255
+    companyAddress:
+      type: text
+      nullable: false
+    companyPhoneNumber:
+      type: string
+      length: 50
+      nullable: false
+  oneToMany:
+    books:
+      targetEntity: Book
+      mappedBy: publisher

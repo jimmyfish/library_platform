@@ -1,0 +1,13 @@
+App\Entity\Book:
+  type: Entity
+  repositoryClass: App\Repository\BookRepository
+  table: book
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    bookName:
+      type: string
+      column: book_name

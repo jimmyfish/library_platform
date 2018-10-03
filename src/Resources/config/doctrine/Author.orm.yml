@@ -1,0 +1,31 @@
+App\Entity\Author:
+  type: entity
+  repositoryClass: App\Repository\AuthorRepository
+  table: author
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    firstName:
+      type: string
+      length: 255
+      nullable: false
+    lastName:
+      type: string
+      length: 255
+      nullable: true
+    birthdate:
+      type: datetime
+      nullable: false
+    birthplace:
+      type: string
+      nullable: false
+    nationality:
+      type: string
+      nullable: false
+  oneToMany:
+    books:
+      targetEntity: Book
+      mappedBy: author
