@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://gitlab.com/jimmyfish212/library-platform/issues"
   },
-  "homepage": "https://gitlab.com/jimmyfish212/library-platform#readme"
+  "homepage": "https://gitlab.com/jimmyfish212/library-platform#readme",
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
 }
