@@ -3,37 +3,44 @@
 {% block title %}Publisher index{% endblock %}
 
 {% block body %}
-    <h1>Publisher index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>CompanyName</th>
-                <th>CompanyAddress</th>
-                <th>CompanyPhoneNumber</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for publisher in publishers %}
-            <tr>
-                <td>{{ publisher.id }}</td>
-                <td>{{ publisher.companyName }}</td>
-                <td>{{ publisher.companyAddress }}</td>
-                <td>{{ publisher.companyPhoneNumber }}</td>
-                <td>
-                    <a href="{{ path('publisher_show', {'id': publisher.id}) }}">show</a>
-                    <a href="{{ path('publisher_edit', {'id': publisher.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <section class="mt-5">
+        <h1 class="text-center">Publisher index</h1>
 
-    <a href="{{ path('publisher_new') }}">Create new</a>
+        <div class="row my-3">
+            <div class="col-12 col-md-6 col-lg-3">
+                <a href="{{ path('publisher_new') }}" class="btn btn-primary btn-block">Create new</a>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Company name</th>
+                    <th>Company address</th>
+                    <th>Company phone number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for publisher in publishers %}
+                <tr>
+                    <td>{{ publisher.id }}</td>
+                    <td>{{ publisher.companyName }}</td>
+                    <td>{{ publisher.companyAddress }}</td>
+                    <td>{{ publisher.companyPhoneNumber }}</td>
+                    <td>
+                        <a href="{{ path('publisher_show', {'id': publisher.id}) }}" class="btn btn-sm btn-success">show</a>
+                        <a href="{{ path('publisher_edit', {'id': publisher.id}) }}" class="btn btn-sm btn-primary">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
 {% endblock %}
